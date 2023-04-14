@@ -25,6 +25,9 @@ app.get('/', (req, res) => {
 
 // Add a new temperature value to the array
 app.post('/', (req, res) => {
+  if(temperatures.length === 10){
+    temperatures.splice(0, temperatures.length);
+  }
   temperatures.push(req.body.temperature);
   res.redirect('/');
 });
